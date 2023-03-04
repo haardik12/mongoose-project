@@ -1,0 +1,24 @@
+<!-- <html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+    </head>
+    <body>
+        <%- include('_header'); %> -->
+        <link rel="stylesheet" href="../css/user_profile.css">
+        <h1>Codeial <%= title %></h1>
+
+        <p>Name: <%= user.name %></p>
+        <p>Email: <%= user.email %></p>
+
+        <form action="/users/sign-out" method="POST">
+            <input type="submit" value="sign-out">
+        </form>
+<!-- 
+        <%- include('_footer'); %>
+    </body>
+</html> -->
+
+<!-- commenting the whole part as it is duplicating everything except the html tags and rendering it on the web page  -->
+<!-- leaving only the variable part which changes accrodingly  -->
