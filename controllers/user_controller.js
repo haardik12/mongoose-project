@@ -29,6 +29,12 @@ module.exports.signIn = function (req, res) {
   })
 }
 
+// module.exports.signIn = function (req, res) {
+//   return res.render('sign-in', {
+//     title: 'codeial : Sign In',
+//   })
+// }
+
 // get the users data and store it in db
 module.exports.create = function (req, res) {
   if (req.body.password != req.body.confirm_password) {
