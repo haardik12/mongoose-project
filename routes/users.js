@@ -1,15 +1,25 @@
 const express = require('express')
+const passport = require('passport')
 const router = express.Router()
 
 const userController = require('../controllers/user_controller')
 
-router.get('/profile', userController.profile)
+router.get('/profile', passport.checkAuthentication, userController.profile)
 router.get('/sign-up', userController.signUp)
 router.get('/sign-in', userController.signIn)
-router.post('/sign-out', userController.signOut)
 router.post('new-session', userController.signUp)
 
 router.post('/create', userController.create)
-router.post('/create-session', userController.createSession)
+// the below create session is used for local authentication without the passport library
+// router.post('/create-session', userController.createSession)
+
+// the below create session is used for passport authentication, it uses passport as a middlieware to authenticate
+router.post(
+  '/create-session',
+  passport.authenticate('local', { failureRedirect: '/users/sign-in' }),
+  userController.createsession
+)
+
+router.get('/sign-out', userController.destroySession)
 
 module.exports = router

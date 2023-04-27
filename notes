@@ -1,0 +1,9 @@
+database relations 
+__________________________________________________
+
+these can be scene as two perspectives
+1. 1:1 that is 1 is to 1
+2. 1:M that is 1 to many
+
+1:1 example is a person can have only one passport or a student can take admission in only a single branch
+1:M example is a person having 2-3 or more cars or the branch can have many subjects for a student
