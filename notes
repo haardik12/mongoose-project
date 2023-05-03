@@ -7,3 +7,15 @@ these can be scene as two perspectives
 
 1:1 example is a person can have only one passport or a student can take admission in only a single branch
 1:M example is a person having 2-3 or more cars or the branch can have many subjects for a student
+
+in posts section when you want to show the username and every detail which the user has signed in with you have to pre populate the post function 
+
+read the documentation mongoose populate and then the whole query comes under a keyword exec
+
+what it is does is whenever a user post something it creates the object of the content of that post and then it fills it up but wth exec it fills the all the details of the user who posted the post in that post object along with the post content
+
+so we can easily fetch the details to display the desired ones on the screen to the user
+
+second we give our form in the home ejs an if statement just to ensure that nobody can post until they are signed in so the if statement hides the form and only shows when the user is signed in 
+
+to complete it we go to our routes and in routes we go to post js and just pass in the check with the check authentication function we made earlier in the passport script 
