@@ -1,9 +1,25 @@
 const User = require('../models/users')
 
 module.exports.profile = function (req, res) {
-  return res.render('users', {
-    title: 'User Profile',
+  User.findById(req.params.id, function (err, user) {
+    if (err) {
+      console.log(err)
+    }
+    return res.render('users', {
+      title: 'User Profile',
+      profile_user: user,
+    })
   })
+}
+
+module.exports.update = function (req, res) {
+  if (req.user.id == req.params.id) {
+    User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+      return res.redirect('back')
+    })
+  } else {
+    return res.status(401).send('unauthorized')
+  }
 }
 
 // profile page loading using manual authentication locally
@@ -109,6 +125,7 @@ module.exports.create = function (req, res) {
 
 // sign in and create a session for the user using passport js, passport local library and session cookies
 module.exports.createsession = function (req, res) {
+  req.flash('success', 'Logged in successfully')
   return res.redirect('/')
 }
 
@@ -117,6 +134,7 @@ module.exports.destroySession = function (req, res) {
     if (err) {
       console.log(err)
     }
+    req.flash('success', 'You have been logged out')
     return res.redirect('/')
   })
 }

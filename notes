@@ -19,3 +19,7 @@ so we can easily fetch the details to display the desired ones on the screen to 
 second we give our form in the home ejs an if statement just to ensure that nobody can post until they are signed in so the if statement hides the form and only shows when the user is signed in 
 
 to complete it we go to our routes and in routes we go to post js and just pass in the check with the check authentication function we made earlier in the passport script 
+
+async await means async used to declare a function that this function is asynchronus and what it does it it first executes a statement that has await in it and it does not go for the call back function and then executes the rest of the code which has await behind it 
+
+flash messages are a kind of a pop and are stored with the session cookies temporarly whenever a user signs in a flash message is stored with the session cookies and whenever the user refreshes the page the flash messages gets erased and does not appear until the next req like log out or deleting comment etc

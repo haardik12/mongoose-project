@@ -1,18 +1,24 @@
 <!-- <html>
-    <head>
-        <title>
-            <%= title %>
-        </title>
-    </head>
     <body>
         <%- include('_header'); %> -->
-        <link rel="stylesheet" href="../css/user_profile.css">
-        <h1>Codeial <%= title %></h1>
+        <head>
+        <link rel="stylesheet" href="/css/user_profile.css"/>
+    </head>
+    <h1>Codeial <%= title %></h1>
 
-        <p>Name: <%= user.name %></p>
-        <p>Email: <%= user.email %></p>
+    <% if (user.id == profile_user.id) { %>
+    <!-- if user matches then show the form  -->
+        <form action="/users/update/<%= profile_user.id %>" method="POST">
+            <input type="text" name="name" placeholder="your name" value="<%= profile_user.name %>" required>
+            <input type="email" name="email" placeholder="your email" value="<%= profile_user.email %>" required>
+            <input type="submit" value="update">
+        </form>
+    <% }else{ %>
+        <p>Name: <%= profile_user.name %></p>
+        <p>Email: <%= profile_user.email %></p>
+    <% } %>
 
-        <!-- <form action="/users/sign-out" method="POST">
+<!-- <form action="/users/sign-out" method="POST">
             <input type="submit" value="sign-out">
         </form> -->
 <!-- 
