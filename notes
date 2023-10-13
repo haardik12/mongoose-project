@@ -23,3 +23,12 @@ to complete it we go to our routes and in routes we go to post js and just pass 
 async await means async used to declare a function that this function is asynchronus and what it does it it first executes a statement that has await in it and it does not go for the call back function and then executes the rest of the code which has await behind it 
 
 flash messages are a kind of a pop and are stored with the session cookies temporarly whenever a user signs in a flash message is stored with the session cookies and whenever the user refreshes the page the flash messages gets erased and does not appear until the next req like log out or deleting comment etc
+
+POSTMAN
+
+postman is used for API testing recieve responses from them and send resquest 
+Postman provides a user-friendly interface for constructing various types of HTTP requests (GET, POST, PUT, DELETE, etc.)
+
+Postman can automate the testing process by creating and running collections of requests
+Postman allows you to monitor API responses, check response times, and inspect headers and payloads.
+with the help of the postman we can know the errors in the server-side code

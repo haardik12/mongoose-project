@@ -1,4 +1,5 @@
-<p>
+<li id="comment-<%= comment._id %>">
+  <p>
   <% if (locals.user && locals.user.id == comment.user.id) { %>
 
   <small>
@@ -7,4 +8,8 @@
   <% } %> <%= comment.content %>
   <br />
   <small> <%= comment.user.name %> </small>
-</p>
+  </p>
+</li>
+
+
+<script src="/js/home_comments.js"></script>

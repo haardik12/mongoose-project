@@ -9,12 +9,13 @@ passport.use(
   new LocalStrategy(
     {
       usernameField: 'email',
+      passReqToCallback: true,
     },
-    function (email, password, done) {
+    function (req, email, password, done) {
       // Find a user and establish the identity
       User.findOne({ email: email }, function (err, user) {
         if (err) {
-          console.log('error in finding the user --> passport')
+          req.flash('error', err)
           return done(err)
         }
 
@@ -22,7 +23,7 @@ passport.use(
         // first null represents that there is no error
         // false represents that the authentication has not been done like the username/password didnt match
         if (!user || user.password != password) {
-          console.log('password dont match')
+          req.flash('error', 'invalid Username/Password')
           return done(null, false)
         }
 

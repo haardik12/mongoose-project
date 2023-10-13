@@ -9,6 +9,7 @@ const db = require('./config/mongoose')
 const session = require('express-session')
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy');
+const passportJwt = require('./config/passport-jwt-strategy')
 const MongoStore = require('connect-mongo')
 const flash = require('connect-flash')
 const customMiddleware = require('./config/middleware')
@@ -18,6 +19,9 @@ app.use(express.urlencoded())
 app.use(cookieParser())
 
 app.use(express.static('./assets'))
+
+// make the uploads available to the browser
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 // we have written this code above routes because we want to tell the routes that every file now is going to have this library used in them
 app.use(expressLayouts)

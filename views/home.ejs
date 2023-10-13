@@ -15,7 +15,7 @@
   <section id="feed-posts">
     <h4>POSTS</h4>
     <% if (locals.user) { %>
-    <form action="/posts/create" id="new-post-here" method="POST">
+    <form action="/posts/create" id="new-post-form" method="POST">
       <textarea
         name="content"
         cols="30"
@@ -23,7 +23,7 @@
         placeholder="type here..."
         required
       ></textarea>
-      <input type="submit" value="Post" />
+      <input type="submit" value="Post">
     </form>
     <% } %>
     <div id="post-container">
@@ -42,6 +42,9 @@
     <% } %>
   </section>
 </div>
+
+<script src="/js/home_posts.js"></script>
+<script src="/js/home_comments.js"></script>
 <!-- <%- include('_footer'); %>
     </body>
 </html> -->
